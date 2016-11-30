@@ -28,4 +28,19 @@
     <string name="btn_sign_out">Sign Out</string>
     <string name="lbl_forgot_password">Forgot password?</string>
     <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>
+
+    <string-array name="spinnerItems">
+        <item>BS EMC</item>
+        <item>BA Psych</item>
+        <item>BSA</item>
+        <item>BSBA-BM</item>
+        <item>BSTM</item>
+        <item>BSCS-SS</item>
+        <item>BSCS-CN</item>
+        <item>BSCS-SDF</item>
+        <item>BSIT-MI</item>
+        <item>BSCpE</item>
+        <item>BS-ECE</item>
+        <item>ABMA</item>
+    </string-array>
 </resources>
