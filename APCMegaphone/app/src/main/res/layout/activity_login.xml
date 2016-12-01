@@ -73,7 +73,6 @@
             android:textAllCaps="false"
             android:textColor="@color/colorAccent"
             android:gravity="right"
-            android:paddingTop="30dp"
             />
 
         <!-- Login Button -->
@@ -94,6 +93,7 @@
             android:weightSum="1">
 
             <Button
+                android:id="@+id/fbLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Facebook"
@@ -110,7 +110,9 @@
                 android:background="@drawable/googleshape"
                 android:layout_marginTop="10dp"
                 android:layout_weight="0.4"
-                android:text="Google+"/>
+                android:text="Google+"
+                android:id="@+id/button" />
+
         </LinearLayout>
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>
