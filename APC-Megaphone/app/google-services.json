@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1093411306610",
+    "firebase_url": "https://apc-megaphone.firebaseio.com",
+    "project_id": "apc-megaphone",
+    "storage_bucket": "apc-megaphone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1093411306610:android:9e6d0aff67863f5f",
+        "android_client_info": {
+          "package_name": "apc.lee.kyle.apc_megaphone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1093411306610-elfj1euk72bs7es4dd3aoiikponh8una.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC__550OtR_hcMBjMJwNxN1S_S7c3K7ZaU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
