@@ -3,6 +3,7 @@ package apc.lee.kyle.apc_megaphone.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -13,6 +14,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +24,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import apc.lee.kyle.apc_megaphone.Fragment.HomeFragment;
 import apc.lee.kyle.apc_megaphone.Fragment.MoviesFragment;
@@ -41,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView txtName, txtWebsite;
     private Toolbar toolbar;
     private FloatingActionButton fab;
+    private FirebaseAuth auth;
+    private FirebaseAuth.AuthStateListener authListener;
 
     // urls to load navigation header background image
     // and profile image
@@ -76,6 +82,25 @@ public class MainActivity extends AppCompatActivity {
 
         mHandler = new Handler();
 
+        auth = FirebaseAuth.getInstance();
+
+        // this listener will be called when there is change in firebase user session
+        authListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user == null) {
+                    // user auth state is changed - user is null
+                    // launch login activity
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                    drawer.closeDrawers();
+                    finish();
+                }
+            }
+        };
+
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -86,7 +111,6 @@ public class MainActivity extends AppCompatActivity {
         txtWebsite = (TextView) navHeader.findViewById(R.id.website);
         imgNavHeaderBg = (ImageView) navHeader.findViewById(R.id.img_header_bg);
         imgProfile = (ImageView) navHeader.findViewById(R.id.img_profile);
-        imgHeaderLogo = (ImageView) navHeader.findViewById(R.id.img_header_logo);
 
         // load toolbar titles from string resources
         activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
@@ -136,12 +160,12 @@ public class MainActivity extends AppCompatActivity {
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imgProfile);
 
-        Glide.with(this).load(urlLogo)
+        /*Glide.with(this).load(urlLogo)
                 .crossFade()
                 .thumbnail(0.5f)
                 .bitmapTransform(new CircleTransform(this))
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(imgHeaderLogo);
+                .into(imgHeaderLogo);*/
 
         // showing dot next to notifications label
         navigationView.getMenu().getItem(3).setActionView(R.layout.menu_dot);
@@ -251,10 +275,10 @@ public class MainActivity extends AppCompatActivity {
                         navItemIndex = 0;
                         CURRENT_TAG = TAG_HOME;
                         break;
-                    case R.id.nav_photos:
-                        navItemIndex = 1;
-                        CURRENT_TAG = TAG_PHOTOS;
-                        break;
+                  //  case R.id.nav_photos:
+                    //    navItemIndex = 1;
+                     //   CURRENT_TAG = TAG_PHOTOS;
+                      //  break;
                     //case R.id.nav_movies:
                       //  navItemIndex = 2;
                         //CURRENT_TAG = TAG_MOVIES;
@@ -277,6 +301,8 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, PrivacyPolicyActivity.class));
                         drawer.closeDrawers();
                         return true;
+                    case R.id.nav_logout:
+                        auth.signOut();
                     default:
                         navItemIndex = 0;
                 }
@@ -294,6 +320,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
 
 
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.openDrawer, R.string.closeDrawer) {
@@ -358,6 +385,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onStop() {
+        super.onStop();
+        if (authListener != null) {
+            auth.removeAuthStateListener(authListener);
+        }
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -366,6 +401,7 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
+            auth.signOut();
             Toast.makeText(getApplicationContext(), "Logout user!", Toast.LENGTH_LONG).show();
             return true;
         }

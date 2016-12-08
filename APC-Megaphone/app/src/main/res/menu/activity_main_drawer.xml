@@ -6,15 +6,16 @@
             android:id="@+id/nav_home"
             android:icon="@mipmap/ic_home_black_24dp"
             android:title="@string/nav_home" />
-        <item
-            android:id="@+id/nav_photos"
-            android:icon="@mipmap/ic_photo_library_black_24dp"
-            android:title="@string/nav_photos" />
         <!--
-        <item
-            android:id="@+id/nav_movies"
-            android:icon="@mipmap/ic_local_movies_black_24dp"
-            android:title="@string/nav_movies" /> -->
+       <item
+           android:id="@+id/nav_photos"
+           android:icon="@mipmap/ic_photo_library_black_24dp"
+           android:title="@string/nav_photos" />
+
+       <item
+           android:id="@+id/nav_movies"
+           android:icon="@mipmap/ic_local_movies_black_24dp"
+           android:title="@string/nav_movies" /> -->
 
         <item
             android:id="@+id/nav_notifications"
