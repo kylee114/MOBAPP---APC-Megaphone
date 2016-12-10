@@ -13,6 +13,8 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -48,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authListener;
 
+    private RecyclerView mPostList;
+
     // urls to load navigation header background image
     // and profile image
     private static final String urlNavHeaderBg = "https://www.apc.edu.ph/flavio/inquiry/images/jen.png";
@@ -77,6 +81,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mPostList = (RecyclerView)findViewById(R.id.post_list);
+        mPostList.setHasFixedSize(true);
+        mPostList.setLayoutManager(new LinearLayoutManager(this));
+
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -118,8 +128,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+               startActivity(new Intent(MainActivity.this, inputActivity.class));
             }
         });
 
@@ -303,6 +312,7 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.nav_logout:
                         auth.signOut();
+                        break;
                     default:
                         navItemIndex = 0;
                 }
@@ -427,6 +437,24 @@ public class MainActivity extends AppCompatActivity {
             fab.show();
         else
             fab.hide();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    public static class ForumViewHolder extends RecyclerView.ViewHolder{
+
+        View mView;
+        public ForumViewHolder(View itemView) {
+            super(itemView);
+            itemView = mView;
+        }
+
+        public void setTitle(){
+            
+        }
     }
 }
 

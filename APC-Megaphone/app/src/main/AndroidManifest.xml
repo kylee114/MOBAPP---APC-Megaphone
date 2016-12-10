@@ -12,6 +12,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activity.SignupActivity"/>
         <activity android:name=".Activity.ResetPasswordActivity"/>
+        <activity android:name=".Activity.inputActivity"/>
         
         <activity android:name=".Activity.LoginActivity">
             <intent-filter>

@@ -1,13 +1,25 @@
 package apc.lee.kyle.apc_megaphone.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
+import com.google.firebase.auth.FirebaseAuth;
+
+import apc.lee.kyle.apc_megaphone.Activity.MainActivity;
+import apc.lee.kyle.apc_megaphone.Activity.inputActivity;
 import apc.lee.kyle.apc_megaphone.R;
 
 /**
@@ -19,6 +31,10 @@ import apc.lee.kyle.apc_megaphone.R;
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
+
+
+
+    private FloatingActionButton fab;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -55,10 +71,14 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
 
     @Override
@@ -107,4 +127,10 @@ public class HomeFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
 }
