@@ -24,14 +24,14 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
         android:ems="10"
         android:hint="Topic Description..."
         android:background="@drawable/inputtext_outline"
         android:layout_marginTop="52dp"
         android:id="@+id/etdescrip"
+        android:inputType="textMultiLine"
         android:layout_marginLeft="20dp"
-        android:padding="50dp"
+        android:padding="10dp"
         android:layout_below="@+id/ettile"
         android:layout_alignRight="@+id/ettile"
         android:layout_alignEnd="@+id/ettile" />
@@ -45,5 +45,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
 
 </RelativeLayout>
