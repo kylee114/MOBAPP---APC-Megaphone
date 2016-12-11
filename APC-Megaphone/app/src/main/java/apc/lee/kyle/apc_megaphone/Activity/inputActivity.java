@@ -1,4 +1,4 @@
-package apc.lee.kyle.apc_megaphone.Activity;
+package apc.lee.kyle.apc_megaphone.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -10,16 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
-import apc.lee.kyle.apc_megaphone.Fragment.HomeFragment;
 import apc.lee.kyle.apc_megaphone.R;
-
-import static android.R.attr.button;
 
 /**
  * Created by gc on 12/10/2016.
@@ -64,6 +58,8 @@ public class inputActivity extends AppCompatActivity{
             DatabaseReference newPost = mDatabase.push();
             newPost.child("title").setValue(title_val);
             newPost.child("desc").setValue(desc_val);
+
+            mProgress.dismiss();
 
         startActivity(new Intent(inputActivity.this, MainActivity.class));
         }

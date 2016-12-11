@@ -1,4 +1,4 @@
-package apc.lee.kyle.apc_megaphone.Activity;
+package apc.lee.kyle.apc_megaphone.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -16,7 +15,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,12 +27,12 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import apc.lee.kyle.apc_megaphone.Fragment.HomeFragment;
-import apc.lee.kyle.apc_megaphone.Fragment.MoviesFragment;
-import apc.lee.kyle.apc_megaphone.Fragment.NotificationsFragment;
-import apc.lee.kyle.apc_megaphone.Fragment.PhotosFragment;
-import apc.lee.kyle.apc_megaphone.Fragment.SettingsFragment;
-import apc.lee.kyle.apc_megaphone.Other.CircleTransform;
+import apc.lee.kyle.apc_megaphone.fragment.HomeFragment;
+import apc.lee.kyle.apc_megaphone.fragment.MoviesFragment;
+import apc.lee.kyle.apc_megaphone.fragment.NotificationsFragment;
+import apc.lee.kyle.apc_megaphone.fragment.PhotosFragment;
+import apc.lee.kyle.apc_megaphone.fragment.SettingsFragment;
+import apc.lee.kyle.apc_megaphone.other.CircleTransform;
 
 import apc.lee.kyle.apc_megaphone.R;
 

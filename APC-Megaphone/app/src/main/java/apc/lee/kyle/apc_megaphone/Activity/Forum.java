@@ -1,4 +1,4 @@
-package apc.lee.kyle.apc_megaphone.Activity;
+package apc.lee.kyle.apc_megaphone.activity;
 
 /**
  * Created by gc on 12/10/2016.

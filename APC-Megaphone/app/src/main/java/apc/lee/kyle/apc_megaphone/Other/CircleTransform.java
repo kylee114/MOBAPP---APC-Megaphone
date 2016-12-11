@@ -1,4 +1,4 @@
-package apc.lee.kyle.apc_megaphone.Other;
+package apc.lee.kyle.apc_megaphone.other;
 
 import android.content.Context;
 import android.graphics.Bitmap;

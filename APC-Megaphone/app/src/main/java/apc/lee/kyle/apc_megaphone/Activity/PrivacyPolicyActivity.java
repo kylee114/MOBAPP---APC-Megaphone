@@ -1,4 +1,4 @@
-package apc.lee.kyle.apc_megaphone.Activity;
+package apc.lee.kyle.apc_megaphone.activity;
 
 import android.support.v7.app.AppCompatActivity;
 

@@ -1,4 +1,4 @@
-package apc.lee.kyle.apc_megaphone.Fragment;
+package apc.lee.kyle.apc_megaphone.fragment;
 
 import android.content.Context;
 import android.net.Uri;
