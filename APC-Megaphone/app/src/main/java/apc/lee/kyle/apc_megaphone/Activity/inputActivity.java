@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -58,10 +59,11 @@ public class inputActivity extends AppCompatActivity{
             DatabaseReference newPost = mDatabase.push();
             newPost.child("title").setValue(title_val);
             newPost.child("desc").setValue(desc_val);
+            newPost.child("UID").setValue(FirebaseAuth.getInstance().getCurrentUser());
 
             mProgress.dismiss();
 
-        startActivity(new Intent(inputActivity.this, MainActivity.class));
+            startActivity(new Intent(inputActivity.this, MainActivity.class));
         }
 
 

@@ -6,14 +6,10 @@
     tools:context="apc.lee.kyle.apc_megaphone.fragment.HomeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:dividerHeight="16dp"
-        android:divider="@android:color/transparent"
-        android:id="@+id/list_of_messages"
-        android:stackFromBottom="true"
-        android:layout_marginBottom="16dp"/>
+        android:id="@+id/post_list"></android.support.v7.widget.RecyclerView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

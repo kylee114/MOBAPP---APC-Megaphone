@@ -21,11 +21,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import apc.lee.kyle.apc_megaphone.fragment.HomeFragment;
 import apc.lee.kyle.apc_megaphone.fragment.MoviesFragment;
@@ -75,14 +78,11 @@ public class MainActivity extends AppCompatActivity {
     private Handler mHandler;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        mPostList = (RecyclerView)findViewById(R.id.post_list);
-        mPostList.setHasFixedSize(true);
-        mPostList.setLayoutManager(new LinearLayoutManager(this));
 
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -442,17 +442,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
     }
 
-    public static class ForumViewHolder extends RecyclerView.ViewHolder{
 
-        View mView;
-        public ForumViewHolder(View itemView) {
-            super(itemView);
-            itemView = mView;
-        }
 
-        public void setTitle(){
-            
-        }
-    }
 }
 
